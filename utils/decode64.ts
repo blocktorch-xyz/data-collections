@@ -6,9 +6,9 @@ function base64ToHex(input: any): any {
     return parseInt(input);
   }
 
-  const base64Regex = /^[A-Za-z0-9+/=]+$/; // regex to match base64 string
+  const base64Regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/; // regex to match base64 string
   if (typeof input === 'string' && base64Regex.test(input)) {
-    const hex = '0x' + Buffer.from(input, 'base64').toString('hex');
+    const hex = input === '' ? '' : '0x' + Buffer.from(input, 'base64').toString('hex');
     return hex;
   }
 
