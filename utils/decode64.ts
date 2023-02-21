@@ -28,10 +28,10 @@ function base64ToHex(input: any): any {
 }
 
 // sample usage
-const jsonString = fs.readFileSync('./encoded/pool_calls64.json', 'utf-8');
+const jsonString = fs.readFileSync('./encoded/borrow_calls64.json', 'utf-8');
 const jsonObject = JSON.parse(jsonString);
 const result = base64ToHex(jsonObject);
-fs.writeFile("../aave/pool_calls.json", JSON.stringify(result, null, 2), 'utf8', function (fsErr: any) {
+fs.writeFile("../aave/borrow_calls.json", JSON.stringify(result, null, 2), 'utf8', function (fsErr: any) {
   if (fsErr) {
       console.log("An error occured while writing JSON Object to File.");
       return console.log(fsErr);
